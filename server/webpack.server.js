@@ -1,3 +1,7 @@
+/*
+ * Server Side Bundle - Server Code + React App - Code runs on our backend
+ */
+
 const path = require('path');
 
 module.exports = {
