@@ -13,7 +13,7 @@ const app = express();
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  const output = renderer();
+  const output = renderer(req);
   res.send(output);
 });
 
