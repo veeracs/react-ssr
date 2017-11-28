@@ -1,5 +1,7 @@
+import 'babel-polyfill';
 import express from 'express';
 import renderer from './helpers/renderer';
+import createStore from './helpers/createStore';
 
 const app = express();
 
@@ -11,9 +13,12 @@ const app = express();
  */
 
 app.use(express.static('public'));
+app.get('*', (req, res) => {
+  const store = createStore();
 
-app.get('/', (req, res) => {
-  const output = renderer(req);
+  //  Some logic to initialize and load data into the store
+
+  const output = renderer(req, store);
   res.send(output);
 });
 
